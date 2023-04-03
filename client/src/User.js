@@ -19,7 +19,6 @@ const User = () => {
         });
     }, [])
 
-    console.log(user);
     return(
         <div>
             <div>
