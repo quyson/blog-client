@@ -32,7 +32,7 @@ const Posts = () => {
 
     return(
         <div>
-            {localStorage.getItem('token') === 0 ? null : <a href="/posts/create">Create a New Post</a>}
+            {currentUser === null ? null : <a href="/posts/create">Create a New Post</a>}
             <h1>All Posts</h1>
             {postList.map((element) => {
                 return(

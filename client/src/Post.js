@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 const Post = () => {
 
@@ -35,11 +34,15 @@ const Post = () => {
         setCommentForm(!commentForm);
     }
 
+    const handleDelete = (id) => {
+        const token = localStorage.getItem('token');
+        axios.post(`http://localhost:8000/comment/delete`,{id: id}, {headers: {Authorization: token}}).then((result) => {
+            window.location.reload();
+        });
+    };
+
     return(
         <div>
-            <div>
-                { currentUser ? <div>{currentUser.username}</div> : null}
-            </div>
            <div>
                 { post ?  
                 <div>
@@ -54,6 +57,12 @@ const Post = () => {
                 return(
                     <div>
                         <h6>{element.user.username}</h6>
+                        {element.user._id === currentUser._id ? 
+                        <div>
+                            <button type="button" onClick={(e) => handleDelete(element._id)}>Delete</button>
+                            <button type="button">Edit</button>
+                        </div>
+                         : null}
                         <p>{element.message}</p>
                         <p>{element.likes}</p>
                     </div>

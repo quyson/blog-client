@@ -15,6 +15,7 @@ const Home = () => {
     const logout = (e) => {
         e.preventDefault();
         localStorage.setItem('token', 0);
+        window.location.reload();
     }
     console.log(localStorage);
     return(
