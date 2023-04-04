@@ -41,13 +41,27 @@ const Post = () => {
         });
     };
 
+    const handleCommentLikes = (id) => {
+        const token = localStorage.getItem('token');
+        axios.post(`http://localhost:8000/comment/like`,{id: id}, {headers: {Authorization: token}}).then((result) => {
+            window.location.reload();
+        });
+    }
+
+    const handlePostLikes = (id) => {
+        const token = localStorage.getItem('token');
+        axios.post(`http://localhost:8000/posts/like`,{id: id}, {headers: {Authorization: token}}).then((result) => {
+            window.location.reload();
+        });
+    };
+
     return(
         <div>
            <div>
                 { post ?  
                 <div>
                     <h1>{post.title}</h1>
-                    <div>{post.likes}</div>
+                    <div onClick={(e) => handlePostLikes(post._id)}>{post.likes}</div>
                     <div>{post.message}</div>
                     <div>{post.user.username}</div>
                 </div> : null}
@@ -64,7 +78,7 @@ const Post = () => {
                         </div>
                          : null}
                         <p>{element.message}</p>
-                        <p>{element.likes}</p>
+                        <p onClick={(e) => handleCommentLikes(element._id)}>{element.likes}</p>
                     </div>
                 )
            }): <div> No Comments to Show...</div>}

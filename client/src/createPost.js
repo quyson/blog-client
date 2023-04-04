@@ -33,7 +33,6 @@ const CreatePost = () => {
 
     return(
         <div>
-            { userId ? <div>{userId}</div> : null}
             <h1>New Post!</h1>
             <form onSubmit={handleSubmit}>
                 <label for="title">Title</label>
