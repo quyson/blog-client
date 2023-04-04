@@ -14,7 +14,7 @@ const Home = () => {
 
     const logout = (e) => {
         e.preventDefault();
-        localStorage.setItem('token', "");
+        localStorage.setItem('token', 0);
     }
     console.log(localStorage);
     return(
