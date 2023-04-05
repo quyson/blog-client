@@ -30,19 +30,21 @@ const Navbar = () => {
     }
 
     return(
-        <div>
-            <a href="/">Home</a>
+        <div className="flex bg-slate-800 text-white text-xl h-20 p-10 justify-between items-center text-center border-b-2 border-solid border-black">
+            <a href="/" className="hover:text-violet-500">Home</a>
             {navCurrentUser != null ? 
-            <div>
-                <h1>{navCurrentUser}</h1>
-                <button onClick={logout}>Log Out</button>
+            <div className="flex gap-8">
+                <h1 className="hover:bg-white p-1 text-yellow-500 border-2 border-yellow-300">{navCurrentUser}</h1>
+                <button onClick={logout} className="hover:bg-blue-600 p-1 border-2 rounded-md border-white">Log Out</button>
             </div> : 
-            <div>
-                <a href="/login">login</a>
-                <a href="/signup">Sign Up</a>
+            <div className="flex gap-4">
+                <a href="/login" className="hover:text-violet-500">Login</a>
+                <a href="/signup" className="hover:text-violet-500">Sign Up</a>
             </div>}
-            <a href="/posts">All Posts</a>
-            <a href="/users">See Users</a>
+            <div className="flex gap-4">
+                <a href="/posts" className="hover:text-violet-500">All Posts</a>
+                <a href="/users" className="hover:text-violet-500">See Users</a>
+            </div>
         </div>
     )
 }
