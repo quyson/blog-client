@@ -12,21 +12,9 @@ const Home = () => {
         });
     }, []);
 
-    const logout = (e) => {
-        e.preventDefault();
-        localStorage.setItem('token', 0);
-        window.location.reload();
-    }
-    console.log(localStorage);
     return(
         <div>
             <div>
-                <a href="/login">login</a>
-                <a href="/signup">Sign Up</a>
-                <a href="/posts">All Posts</a>
-                <a href="/users">See Users</a>
-                <h1>Latest Post</h1>
-                <button onClick={logout}>Log Out</button>
                 {latestPost.map((element) => {
                     return(
                         <div>

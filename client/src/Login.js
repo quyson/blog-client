@@ -18,11 +18,11 @@ const Login = () => {
 
         console.log(response.data.token);
         localStorage.setItem("token", response.data.token);
-        
         setNavigate(true)
     };
 
     if(navigate){
+        window.location.reload();
         return <Navigate to={"/"}/>
     }
 
