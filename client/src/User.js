@@ -48,6 +48,7 @@ const User = () => {
                 <a href={`/posts/${element._id}`}>
                   <h6 className="text-2xl font-bold">{element.title}</h6>
                 </a>
+                <p className="text-xs">{element.createdAt.slice(0, 9)}</p>
                 <p className="border-2 border-black rounded-full p-1">
                   {element.likes} likes
                 </p>

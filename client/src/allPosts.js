@@ -64,10 +64,10 @@ const Posts = () => {
                 </Link>
                 <Link to={`/users/${element.user._id}`}>
                   <p className="hover:text-violet-700">
-                    {" "}
                     - {element.user.username}
                   </p>
                 </Link>
+                <p className="text-xs">{element.createdAt.slice(0, 9)}</p>
                 {element.user._id == currentUser ? (
                   <div>
                     <button

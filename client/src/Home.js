@@ -8,6 +8,7 @@ const Home = () => {
   useEffect(() => {
     axios.get("http://localhost:8000/").then((response) => {
       setLatestPost(response.data.result);
+      console.log(latestPost);
     });
   }, []);
 
@@ -44,6 +45,7 @@ const Home = () => {
                 <p className="text-sm text-blue-700 hover:text-violet-900">
                   - {element.user.username}
                 </p>
+                <p className="text-xs">{element.createdAt.slice(0, 9)}</p>
               </div>
               <p>{element.message}</p>
             </div>

@@ -87,7 +87,10 @@ const Post = () => {
       {post ? (
         <div className="h-full w-full p-3">
           <div className="flex gap-8 items-center border-b-2 border-black p-2">
-            <h1 className="text-3xl font-bold">{post.title}</h1>
+            <div className="flex gap-1">
+              <h1 className="text-3xl font-bold">{post.title}</h1>
+              <p className="text-xs">{post.createdAt.slice(0, 9)}</p>
+            </div>
             <div>
               {post.user.username} ( {post.user.first_name}{" "}
               {post.user.last_name} )
@@ -117,6 +120,7 @@ const Post = () => {
               >
                 {element.likes} likes
               </p>
+              <p className="text-xs">{element.createdAt.slice(0, 9)}</p>
               {element.user._id === currentUser._id ? (
                 <div>
                   <button
